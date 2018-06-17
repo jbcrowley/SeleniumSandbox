@@ -16,7 +16,6 @@ namespace SeleniumSandbox
             driver.Manage().Window.Maximize();
 
             driver.Url = "http://www.google.com";
-
         }
         [Test]
         public void ExtentTest()
