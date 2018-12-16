@@ -5,7 +5,7 @@ using NUnit.Framework.Interfaces;
 using System.IO;
 
 [SetUpFixture]
-public abstract class Base
+public abstract class BaseTest
 {
     protected ExtentReports _extent;
     protected ExtentTest _test;

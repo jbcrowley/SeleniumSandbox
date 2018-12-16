@@ -3,7 +3,7 @@
 namespace SeleniumSandbox.Tests
 {
     [TestFixture]
-    public class UnitTest2
+    public class IgnoreTests
     {
         [Test]
         [Category("Ignore")]
@@ -19,7 +19,7 @@ namespace SeleniumSandbox.Tests
             Assert.Pass();
         }
         [Test]
-        [Category("UAT")]
+        [Category("Ignore")]
         [Ignore("Waiting for bug 1234", Until = "2018-08-02 10:29:00Z")]
         public void SomeTestCase()
         {
