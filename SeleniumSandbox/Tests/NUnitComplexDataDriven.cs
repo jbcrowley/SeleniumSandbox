@@ -1,10 +1,10 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
 using System.Collections;
 using System.Reflection;
+using NUnit.Framework;
 using SC = System.ComponentModel;
 
-namespace SeleniumSandbox
+namespace SeleniumSandbox.Tests
 {
     [TestFixture]
     public class NUnitComplexDataDriven
@@ -12,7 +12,7 @@ namespace SeleniumSandbox
         [Test, TestCaseSource(typeof(TestData), "OtherVehicleLoanCases")]
         public void NUnitDataDriven(User user, OtherVehicleLoanData otherAutoLoanData)
         {
-            System.Console.WriteLine($"{user.username}, {user.password}, {otherAutoLoanData.type.GetDescription()}, {otherAutoLoanData.rate}");
+            Console.WriteLine($"{user.Username}, {user.Password}, {otherAutoLoanData.Type.GetDescription()}, {otherAutoLoanData.Rate}");
         }
     }
 
@@ -31,25 +31,25 @@ namespace SeleniumSandbox
 
     public class User
     {
-        public string username;
-        public string password;
+        public string Username;
+        public string Password;
 
         public User(string username, string password)
         {
-            this.username = username;
-            this.password = password;
+            Username = username;
+            Password = password;
         }
     }
 
     public class OtherVehicleLoanData
     {
-        public OtherVehicleLoanType type;
-        public string rate;
+        public OtherVehicleLoanType Type;
+        public string Rate;
 
         public OtherVehicleLoanData(OtherVehicleLoanType type, string rate)
         {
-            this.type = type;
-            this.rate = rate;
+            this.Type = type;
+            this.Rate = rate;
         }
     }
 
@@ -57,6 +57,7 @@ namespace SeleniumSandbox
     {
         Boat,
         [SC.Description("Recreational Vehicle")]
+        // ReSharper disable once InconsistentNaming
         RV,
         Motorcycle
     }

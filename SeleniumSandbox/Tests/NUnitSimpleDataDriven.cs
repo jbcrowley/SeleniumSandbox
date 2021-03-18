@@ -1,7 +1,7 @@
-﻿using NUnit.Framework;
-using System.Collections;
+﻿using System.Collections;
+using NUnit.Framework;
 
-namespace SeleniumSandbox
+namespace SeleniumSandbox.Tests
 {
     [TestFixture]
     public class NUnitSimpleDataDriven
