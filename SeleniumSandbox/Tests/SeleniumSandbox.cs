@@ -2,9 +2,8 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 using System;
-using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace SeleniumSandbox.Tests
 {
@@ -18,7 +17,7 @@ namespace SeleniumSandbox.Tests
         {
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
-            string url = "https://www.nvidia.com/en-us/shop/geforce/?page=1&limit=9&locale=en-us";
+            string url = "https://www.cboe.com/delayed_quotes/vix/quote_table";
             // string url = @"C:\Users\jbcro\Desktop\sample.html";
             driver.Url = url;
         }
@@ -26,12 +25,8 @@ namespace SeleniumSandbox.Tests
         [Test]
         public void SampleTest()
         {
-            By locator = By.CssSelector(".MyClass");
-            ReadOnlyCollection<IWebElement> elements = driver.FindElements(locator);
-            IWebElement lastElement = elements.ElementAt(elements.Count - 1);
-
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            wait.Until(d => d.FindElement(locator).Text != lastElement.Text);
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//button[text()='Read less']"))).Click();
         }
 
         [TearDown]
