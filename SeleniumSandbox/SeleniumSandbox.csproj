@@ -341,6 +341,9 @@
     <Compile Include="Tests\FormatStringNumberAsNegative.cs" />
     <Compile Include="Tests\SampleTest.cs" />
     <Compile Include="Tests\SeleniumBenchmark.cs" />
+    <Compile Include="Tests\Cookies.cs" />
+    <Compile Include="Tests\TakeScreenshot3.cs" />
+    <Compile Include="Tests\TakeScreenshot3Test.cs" />
     <Compile Include="Tests\TakeScreenshotGPT.cs" />
     <Compile Include="Tests\TakeScreenshot2.cs" />
     <Compile Include="Tests\TakeScreenshot.cs" />
@@ -375,7 +378,6 @@
     <Error Condition="!Exists('..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\build\Microsoft.CodeAnalysis.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\build\Microsoft.CodeAnalysis.Analyzers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\build\Microsoft.CodeAnalysis.Analyzers.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\build\Microsoft.CodeAnalysis.Analyzers.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.Diagnostics.Tracing.TraceEvent.3.0.6\build\Microsoft.Diagnostics.Tracing.TraceEvent.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Diagnostics.Tracing.TraceEvent.3.0.6\build\Microsoft.Diagnostics.Tracing.TraceEvent.props'))" />
-    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.111.0.5563.6400\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.111.0.5563.6400\build\Selenium.WebDriver.ChromeDriver.targets'))" />
     <Error Condition="!Exists('..\packages\NUnit3TestAdapter.4.4.2\build\net462\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.4.4.2\build\net462\NUnit3TestAdapter.props'))" />
     <Error Condition="!Exists('..\packages\Selenium.WebDriver.4.8.1\build\Selenium.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.4.8.1\build\Selenium.WebDriver.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeCoverage.17.5.0\build\netstandard2.0\Microsoft.CodeCoverage.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeCoverage.17.5.0\build\netstandard2.0\Microsoft.CodeCoverage.props'))" />
@@ -384,7 +386,6 @@
     <Error Condition="!Exists('..\packages\Microsoft.NET.Test.Sdk.17.5.0\build\net462\Microsoft.NET.Test.Sdk.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NET.Test.Sdk.17.5.0\build\net462\Microsoft.NET.Test.Sdk.targets'))" />
   </Target>
   <Import Project="..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\build\Microsoft.CodeAnalysis.Analyzers.targets" Condition="Exists('..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\build\Microsoft.CodeAnalysis.Analyzers.targets')" />
-  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.111.0.5563.6400\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.111.0.5563.6400\build\Selenium.WebDriver.ChromeDriver.targets')" />
   <Import Project="..\packages\Selenium.WebDriver.4.8.1\build\Selenium.WebDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.4.8.1\build\Selenium.WebDriver.targets')" />
   <Import Project="..\packages\Microsoft.CodeCoverage.17.5.0\build\netstandard2.0\Microsoft.CodeCoverage.targets" Condition="Exists('..\packages\Microsoft.CodeCoverage.17.5.0\build\netstandard2.0\Microsoft.CodeCoverage.targets')" />
   <Import Project="..\packages\Microsoft.NET.Test.Sdk.17.5.0\build\net462\Microsoft.NET.Test.Sdk.targets" Condition="Exists('..\packages\Microsoft.NET.Test.Sdk.17.5.0\build\net462\Microsoft.NET.Test.Sdk.targets')" />
