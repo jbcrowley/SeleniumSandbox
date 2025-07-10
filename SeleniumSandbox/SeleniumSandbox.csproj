@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit3TestAdapter.4.5.0\build\net462\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.4.5.0\build\net462\NUnit3TestAdapter.props')" />
   <Import Project="..\packages\Microsoft.NET.Test.Sdk.17.5.0\build\net462\Microsoft.NET.Test.Sdk.props" Condition="Exists('..\packages\Microsoft.NET.Test.Sdk.17.5.0\build\net462\Microsoft.NET.Test.Sdk.props')" />
   <Import Project="..\packages\Microsoft.CodeCoverage.17.5.0\build\netstandard2.0\Microsoft.CodeCoverage.props" Condition="Exists('..\packages\Microsoft.CodeCoverage.17.5.0\build\netstandard2.0\Microsoft.CodeCoverage.props')" />
-  <Import Project="..\packages\NUnit3TestAdapter.4.4.2\build\net462\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.4.4.2\build\net462\NUnit3TestAdapter.props')" />
   <Import Project="..\packages\Microsoft.Diagnostics.Tracing.TraceEvent.3.0.6\build\Microsoft.Diagnostics.Tracing.TraceEvent.props" Condition="Exists('..\packages\Microsoft.Diagnostics.Tracing.TraceEvent.3.0.6\build\Microsoft.Diagnostics.Tracing.TraceEvent.props')" />
   <Import Project="..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\build\Microsoft.CodeAnalysis.Analyzers.props" Condition="Exists('..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\build\Microsoft.CodeAnalysis.Analyzers.props')" />
   <Import Project="..\packages\NUnit.3.13.3\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.13.3\build\NUnit.props')" />
@@ -318,10 +318,10 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="WebDriver, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Selenium.WebDriver.4.8.1\lib\net47\WebDriver.dll</HintPath>
+      <HintPath>..\packages\Selenium.WebDriver.4.11.0\lib\net47\WebDriver.dll</HintPath>
     </Reference>
     <Reference Include="WebDriver.Support, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Selenium.Support.4.8.1\lib\net47\WebDriver.Support.dll</HintPath>
+      <HintPath>..\packages\Selenium.Support.4.11.0\lib\net47\WebDriver.Support.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -339,6 +339,10 @@
     <Compile Include="Tests\IgnoreTests.cs" />
     <Compile Include="Tests\Permutations.cs" />
     <Compile Include="Tests\FormatStringNumberAsNegative.cs" />
+    <Compile Include="Tests\SeleniumBasic.cs" />
+    <Compile Include="Tests\CDPPerformanceMetrics.cs" />
+    <Compile Include="Tests\SeleniumSandbox - Copy.cs" />
+    <Compile Include="Tests\WaitForStrings.cs" />
     <Compile Include="Tests\SampleTest.cs" />
     <Compile Include="Tests\SeleniumBenchmark.cs" />
     <Compile Include="Tests\Cookies.cs" />
@@ -349,7 +353,6 @@
     <Compile Include="Tests\TakeScreenshot.cs" />
     <Compile Include="Tests\SingletonDriver.cs" />
     <Compile Include="Tests\Waits.cs" />
-    <Compile Include="Tests\SeleniumSandbox.cs" />
     <Compile Include="Tests\Sandbox.cs" />
     <Compile Include="Utils\GenericHelper.cs" />
   </ItemGroup>
@@ -378,15 +381,15 @@
     <Error Condition="!Exists('..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\build\Microsoft.CodeAnalysis.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\build\Microsoft.CodeAnalysis.Analyzers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\build\Microsoft.CodeAnalysis.Analyzers.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\build\Microsoft.CodeAnalysis.Analyzers.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.Diagnostics.Tracing.TraceEvent.3.0.6\build\Microsoft.Diagnostics.Tracing.TraceEvent.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Diagnostics.Tracing.TraceEvent.3.0.6\build\Microsoft.Diagnostics.Tracing.TraceEvent.props'))" />
-    <Error Condition="!Exists('..\packages\NUnit3TestAdapter.4.4.2\build\net462\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.4.4.2\build\net462\NUnit3TestAdapter.props'))" />
-    <Error Condition="!Exists('..\packages\Selenium.WebDriver.4.8.1\build\Selenium.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.4.8.1\build\Selenium.WebDriver.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeCoverage.17.5.0\build\netstandard2.0\Microsoft.CodeCoverage.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeCoverage.17.5.0\build\netstandard2.0\Microsoft.CodeCoverage.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeCoverage.17.5.0\build\netstandard2.0\Microsoft.CodeCoverage.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeCoverage.17.5.0\build\netstandard2.0\Microsoft.CodeCoverage.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.NET.Test.Sdk.17.5.0\build\net462\Microsoft.NET.Test.Sdk.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NET.Test.Sdk.17.5.0\build\net462\Microsoft.NET.Test.Sdk.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.NET.Test.Sdk.17.5.0\build\net462\Microsoft.NET.Test.Sdk.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NET.Test.Sdk.17.5.0\build\net462\Microsoft.NET.Test.Sdk.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.4.11.0\build\Selenium.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.4.11.0\build\Selenium.WebDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\NUnit3TestAdapter.4.5.0\build\net462\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.4.5.0\build\net462\NUnit3TestAdapter.props'))" />
   </Target>
   <Import Project="..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\build\Microsoft.CodeAnalysis.Analyzers.targets" Condition="Exists('..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\build\Microsoft.CodeAnalysis.Analyzers.targets')" />
-  <Import Project="..\packages\Selenium.WebDriver.4.8.1\build\Selenium.WebDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.4.8.1\build\Selenium.WebDriver.targets')" />
   <Import Project="..\packages\Microsoft.CodeCoverage.17.5.0\build\netstandard2.0\Microsoft.CodeCoverage.targets" Condition="Exists('..\packages\Microsoft.CodeCoverage.17.5.0\build\netstandard2.0\Microsoft.CodeCoverage.targets')" />
   <Import Project="..\packages\Microsoft.NET.Test.Sdk.17.5.0\build\net462\Microsoft.NET.Test.Sdk.targets" Condition="Exists('..\packages\Microsoft.NET.Test.Sdk.17.5.0\build\net462\Microsoft.NET.Test.Sdk.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.4.11.0\build\Selenium.WebDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.4.11.0\build\Selenium.WebDriver.targets')" />
 </Project>

@@ -1,11 +1,12 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
 
 namespace SeleniumSandbox.Tests
 {
     [TestFixture]
-    public class SeleniumSandbox
+    public class Test
     {
         IWebDriver driver;
 
@@ -14,15 +15,18 @@ namespace SeleniumSandbox.Tests
         {
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
-            // string url = "https://www.google.com/search?q=budynki&rlz=1C1GCEU_plPL919PL919&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiRyJvoo_L9AhWJxIsKHTIKDqwQ_AUoAXoECAEQAw&biw=1553&bih=724";
-            string url = @"C:\Users\jbcro\Desktop\sample.html";
+            string url = "https://github.com/SeleniumHQ/selenium/blob/trunk/dotnet/test/common/TakesScreenshotTest.cs";
+            // string url = @"C:\Users\jbcro\Desktop\sample.html";
             driver.Url = url;
         }
 
         [Test]
         public void SampleTest()
         {
-            driver.FindElement(By.Id("test")).Click();
+            string hidden = "hidden text: " + driver.FindElement(By.Id("hidden")).Text;
+            string visible = "visible text: " + driver.FindElement(By.Id("visible")).Text;
+            Console.WriteLine(hidden);
+            Console.WriteLine(visible);
         }
 
         [TearDown]
